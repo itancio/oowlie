@@ -1,3 +1,4 @@
+
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import Container from "@mui/material/Container";

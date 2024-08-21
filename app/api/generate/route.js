@@ -41,7 +41,7 @@ and answer are easy to understand and that the information is presented clearly.
 and retention. Adjust the phrasing or content if needed.
 
 ### Step 6: Organize and Sequence
-- ** Only generate 10 flashcards at a time
+- ** Only generate 20 flashcards at a time. 10 Flashcards for beginners, 10 for intermediate
 - **Logical Order:** Arrange the flashcards in a logical sequence that builds on knowledge progressively.
 - **Group by Theme:** If there are multiple subtopics, group related flashcards together for cohesive learning.
 

@@ -21,6 +21,7 @@ import {
     useMediaQuery,
 } from "@mui/material"
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import Image from "next/image";
 import {SignedOut, SignedIn, UserButton, ClerkProvider} from "@clerk/nextjs"
 import { useRouter } from "next/navigation";
@@ -59,7 +60,7 @@ export const Hero = () => {
                 <Button
                     href='/generate'
                     variant='contained'
-                    endIcon={<PlayCircleOutlineIcon/>}
+                    endIcon={<ArrowCircleRightIcon/>}
                     sx={{my: 4}}
                 >
                 Get started        

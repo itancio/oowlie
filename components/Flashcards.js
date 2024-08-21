@@ -5,7 +5,7 @@ import {Typography, Container, Grid, Card, CardActionArea} from '@mui/material'
 import {useUser} from '@clerk/nextjs'
 import {useEffect, useState} from 'react'
 import {collection, doc, getDoc, setDoc} from 'firebase/firestore'
-import {db} from '@/firebase'
+import db from '@/firebase'
 import {useRouter} from 'next/navigation'
 
 export default function Flashcards() {
@@ -33,8 +33,13 @@ export default function Flashcards() {
     }, [user])
 
     if (!isLoaded || !isSignedIn) {
-        return <></>
+        router.push('/')
     }
+
+    if (!isSignedIn) {
+        router.push('/sign-in')
+    }
+
     const handleCardClick = (id) => {
         router.push(`/flashcard?id=${id}`)
     }
@@ -61,6 +66,12 @@ export default function Flashcards() {
                         </Card>
                     </Grid>
                 ))}
+                {flashcards?.length === 0 && (
+                    <Box>
+                        <Typography>Create your first set of flashcards</Typography>
+                        <Button variant='contained' href='/generate'> </Button>
+                    </Box>
+                )}
             </Grid>
         </Container>
     )
