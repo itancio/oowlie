@@ -1,5 +1,5 @@
 {
-  "name": "oowlie-flashcard",
+  "name": "flashcard-saas",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -18,14 +18,12 @@
     "@mui/material": "^5.16.7",
     "@mui/material-nextjs": "^5.16.6",
     "@stripe/stripe-js": "^4.2.0",
-    "dotenv": "^16.4.5",
-    "firebase": "^10.13.0",
+    "firebase": "^10.12.5",
     "next": "14.2.5",
     "openai": "^4.55.7",
     "react": "^18",
     "react-dom": "^18",
-    "stripe": "^16.8.0",
-    "zod": "^3.23.8"
+    "stripe": "^16.8.0"
   },
   "devDependencies": {
     "eslint": "^8",
