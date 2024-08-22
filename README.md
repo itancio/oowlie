@@ -1,5 +1,7 @@
 # Oowlie Flashcard AI Saas
-[Demo](https://oowlie.vercel.app/)
+[Live](https://oowlie.vercel.app/)
+
+[Youtube](https://youtu.be/oUtcaiob4OA)
 
 ## Description
 This project is an AI-powered flashcard generator designed 
