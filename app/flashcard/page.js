@@ -94,84 +94,97 @@ export default function Flashcard() {
     }
 
     return (
-        <Container maxWidth='100vw'>
-            <Box sx={{my: 5}}>
-                <Button href='/dashboard' variant='contained' startIcon={<ArrowCircleLeftIcon />}>Back</Button>
-            </Box>
-            <Typography variant='h4' color='primary' sx={{fontWeight: 700}}>{search.toUpperCase()}</Typography>
-            <Grid container spacing={3} sx={{mt: 4, backgroundColor: 'gold'}} >
-                <Grid item></Grid>
-                <Grid item></Grid>
-                <Grid item></Grid>
-                <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 5 }}>
-
-                <IconButton onClick={handlePrevious} color="primary" sx={{ fontSize: '2rem' }}>
-                    <ArrowBackIosNewRoundedIcon fontSize="inherit" />
-                </IconButton>
-
-                <Card display='flex' sx={{minWidth: 500}}>
-                    <CardActionArea onClick={() => handleCardClick(currentCard)}>
-                        <CardContent>
-                            <Box 
-                                sx={{
-                                    perspective: '1000px',
-                                    '& > div': {
-                                        transition: 'transform 0.6s',
-                                        transformStyle: 'preserve-3d',
-                                        position: 'relative',
-                                        width: '100%',
-                                        height: '200px',
-                                        // boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
-                                        transform: flipped[currentCard] 
-                                            ? 'rotateY(180deg)'
-                                            : 'rotateY(0deg)',
-                                    },
-                                    '& > div > div': {
-                                        position: 'absolute',
-                                        width: '100%',
-                                        height: '100%',
-                                        backfaceVisibility: 'hidden',
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        padding: 2,
-                                        boxSizing: 'border-box',
-                                    },
-                                    '& > div > div:nth-of-type(2)': {
-                                        transform: 'rotateY(180deg)',
-                                    },
-                                }}
-                            >
-                                <div>
-                                    <div>
-                                        <Typography variant="body2" component="div">
-                                            {flashcards[currentCard]?.front}
-                                        </Typography>
-                                    </div>
-                                    <div>
-                                        <Typography variant="body1" component="div" >
-                                            {flashcards[currentCard]?.back}
-                                        </Typography>
-                                    </div>
-                                </div>
-                            </Box>
-                        </CardContent>
-                    </CardActionArea>
-                </Card>
- 
-                <IconButton onClick={handleNext} color="primary" sx={{ fontSize: '2rem' }}>
-                    <ArrowForwardIosRoundedIcon fontSize="inherit" />
-                </IconButton>
+        <Container maxWidth='100vw' sx={{padding: 2}}>
+            <Button href='/dashboard' variant='contained' startIcon={<ArrowCircleLeftIcon />}>Back</Button>
+            <Container maxWidth="md" sx={{ mt: 1, mb: 4 }}>
+                <Box sx={{my: 5, display: 'flex', justifyContent: 'center'}}>
+                    <Typography variant='h4' color='primary' sx={{fontWeight: 700}}>{search.toUpperCase()}</Typography>
                 </Box>
+                <Card
+                    onClick={() => handleCardClick(currentCard)}
+                    sx={{ 
+                        minHeight: 300,
+                        borderRadius: 16,
+                        border: '1px solid #feb83d',
+                        display: 'flex', 
+                        alignItems: 'center', 
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                        perspective: 1000,
+                        mt: 3,
+                    }}
+                    >
+                    <Box sx={{
+                        width: '100%',
+                        height: '100%',
+                        transition: 'transform 0.6s',
+                        transformStyle: 'preserve-3d',
 
-                {/* Display the flashcards */}
-                {/* <DisplayCards flashcards = {flashcards}/> */}
-    
-            </Grid>
+                    }}>
+                        <Box 
+                            sx={{
+                                perspective: '10000px',
+                                textAlign: 'center',
+                                padding: 1,
+                                '& > div': {
+                                    height: '20rem',
+                                    transition: 'transform 0.6s',
+                                    transformStyle: 'preserve-3d',
+                                    position: 'relative',
+                                    transform: flipped[currentCard] 
+                                        ? 'rotateY(180deg)'
+                                        : 'rotateY(0deg)',
+                                },
+                                '& > div > div': {
+                                    position: 'absolute',
+                                    width: '100%',
+                                    height: '100%',
+                                    backfaceVisibility: 'hidden',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    boxSizing: 'border-box',
+                                },
+                                '& > div > div:nth-of-type(2)': {
+                                    transform: 'rotateY(180deg)',
+                                },
+                            }}
+                        >
+                            <div>
+                                <div>
+                                    <Typography variant="h6" component="div">
+                                        {flashcards[currentCard]?.front}
+                                    </Typography>
+                                </div>
+                                <div>
+                                    <Typography variant="h6" component="div" >
+                                        {flashcards[currentCard]?.back}
+                                    </Typography>
+                                </div>
+                            </div>
+                        </Box>
+                    </Box>  
+                </Card>
+                <Box>
 
-            <Grid>
-                {currentCard + 1} of {numCards}
-            </Grid>
+
+                </Box>
+                <Box sx={{display:'flex', flexDirection: 'row', justifyContent: 'center', alignContent: 'center'}}>
+                    <IconButton onClick={handlePrevious} color="primary" sx={{ fontSize: '2rem' }}>
+                        <ArrowBackIosNewRoundedIcon fontSize="inherit" />
+                    </IconButton>
+                    <Typography sx={{ mt: 3, textAlign: 'center', pb: 2 }} color="primary">
+                        Card {currentCard + 1} of {numCards}
+                    </Typography>
+                    <IconButton onClick={handleNext} color="primary" sx={{ fontSize: '2rem', zIndex: 2 }}>
+                        <ArrowForwardIosRoundedIcon fontSize="inherit" />
+                    </IconButton>
+                </Box>
+            </Container>
+
+            {/* Display the flashcards */}
+            {/* <DisplayCards flashcards = {flashcards}/> */}
+
         </Container>
     )
     

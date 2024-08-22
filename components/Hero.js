@@ -31,6 +31,28 @@ import Link from 'next/link'
 export const Hero = () => {
 
     return (
+        // <Container
+        //     sx ={{
+        //         position: 'absolute',
+        //         left: 0,
+        //         right: 0,
+        //         top: 80,
+        //         bottom: 0,
+        //         backgroundImage: 'url(/images/hero1.png)',
+        //         transition: 'filter 0.3s ease-in-out',
+        //         backgroundSize: 'contain',
+        //         backgroundRepeat: 'no-repeat',
+        //         maxWidth: '900px',
+        //         zIndex: -1,
+        //     }}
+
+        // >
+
+
+
+        // </Container>
+
+
         <Grid container 
             display='flex' 
             alignItems='center' 
@@ -41,7 +63,7 @@ export const Hero = () => {
                 alignItems='center' 
                 sx={{
                     textAlign: 'center', 
-                    px: 6,
+                    mx: 3,
                 }}>
                 <Typography color='primary' variant="h1">
                     Easy learning
@@ -73,6 +95,7 @@ export const Hero = () => {
                     height: 250,
                     // minHeight: 100,
                     borderRadius: 8,
+                    mx: 3,
                 }}
                 src='/images/hero1.png'
             >
